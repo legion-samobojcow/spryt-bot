@@ -64,9 +64,11 @@ client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
   if (message.content.trim().toLowerCase() === "-spryt") {
-    await message.channel.send(
-      `🃏 **SPRYT — masz 15 sekund!**\n\n🎮 **Zagraj tutaj:** ${GAME_URL}`
-    );
+   const gameUrl = `${GAME_URL}?channel=${message.channel.id}`;
+
+await message.channel.send(
+  `🃏 **SPRYT — masz 15 sekund!**\n🎮 **Zagraj tutaj:** ${gameUrl}`
+);
   }
 });
 
